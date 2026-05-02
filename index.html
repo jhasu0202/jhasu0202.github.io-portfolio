@@ -55,7 +55,10 @@ nav{
 #system-thinking{
   padding:6rem 5rem;
 }
-
+.project-card:first-child {
+  grid-column: span 2;
+  transform: scale(1.02);
+}
 /* MAIN LAYOUT */
 .system-flow{
   display:flex;
@@ -541,7 +544,12 @@ footer{
   background:var(--accent-light);
   transform:translateY(-2px);
 }
-
+.system-highlight{
+  color:var(--accent);
+  font-size:0.9rem;
+  margin:1.5rem 0 3rem;
+  max-width:500px;
+}
 .btn-outline{
   padding:1rem 2.5rem;
   border:1px solid var(--border);
@@ -558,7 +566,9 @@ footer{
   color:var(--accent);
   transform:translateY(-2px);
 }
-
+.project-card:first-child{
+  grid-column: span 2;
+}
 /* ANIMATIONS */
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(28px)}
@@ -605,24 +615,24 @@ footer{
     <!-- LEFT CONTENT -->
     <div class="hero-left">
 
-      <div class="hero-line">Computer Vision · AI Systems</div>
+<div class="hero-line">Applied AI · Computer Vision · System Design</div>
  
       <h1 class="hero-name">
-        Building AI systems that solve real-world problems.
-      </h1>
+Designing AI systems that work under real-world constraints.
+</h1>
 
-      <p class="hero-tagline">
-        Developed a plant disease detection system with <strong>92% accuracy</strong>
-        using OpenCV and machine learning. Experienced in building end-to-end systems —
-        from data pipelines to deployable applications.
-      </p>
+     <p class="hero-tagline">
+I build AI systems that work under real-world constraints — from feature-engineered computer vision models to deployable full-stack applications.
+</p>
 
       <div class="hero-proof">
         <span>✓ 92% ML Accuracy</span>
         <span>✓ Computer Vision Projects</span>
         <span>✓ Full-stack System</span>
       </div>
-
+<p style="color:var(--accent); font-size:0.8rem;">
+Trained on 2000+ real-world images · Deployed ML pipeline
+</p>
       <div class="hero-cta">
         <a href="resume.pdf" class="btn-primary">View Resume</a>
         <a href="https://github.com/jhasu0202" class="btn-outline">GitHub</a>
@@ -705,29 +715,25 @@ Currently, I am focused on applying AI to real-world problems, particularly in a
       <img src="demo.png" style="width:100%; margin:1rem 0; border-radius:8px;">
 
       <p>
-        Built a feature-engineered computer vision system achieving <strong>92% accuracy</strong> on a real-world dataset.
+<strong>Problem:</strong><br>
+Classify citrus leaf diseases across visually similar categories.<br><br>
 
-        <br><br>
+<strong>Dataset:</strong><br>
+2027 images (1808 train / 219 test) with real-world variability.<br><br>
 
-        <strong>Dataset:</strong> 2027 images (train: 1808, test: 219)<br>
-        Includes lighting variation, noise, and visually similar diseases.
+<strong>Approach:</strong><br>
+HSV + GLCM + LBP → Random Forest<br><br>
 
-        <br><br>
+<strong>Result:</strong><br>
+92% accuracy on unseen test data<br><br>
 
-        <strong>Approach:</strong><br>
-        HSV (color) + GLCM (texture) + LBP (micro-patterns) → Random Forest
+<strong>Why this works:</strong><br>
+Performs better than CNNs on small, structured datasets.<br><br>
 
-        <br><br>
-
-        <strong>Why not deep learning?</strong><br>
-        Works better on smaller datasets, requires less compute, and is interpretable.
-
-        <br><br>
-
-        <strong>Limitations:</strong><br>
-        Sensitive to extreme lighting, overlapping leaves, and unseen diseases.
-      </p>
-
+<strong>Limitations:</strong><br>
+Sensitive to extreme lighting and unseen classes.
+</p>
+        
       <div class="card-actions">
         <a href="https://citrus-disease-detection-cr6iiqj3enapgoqbucckpg.streamlit.app/" target="_blank">Live Demo</a>
         <a href="https://github.com/jhasu0202/citrus-disease-detection" target="_blank">Code</a>
@@ -755,7 +761,8 @@ Currently, I am focused on applying AI to real-world problems, particularly in a
     - Structured database schema for scalability
 
     <br><br>
-
+<strong>Outcome:</strong><br>
+Improved system organization and scalability through clean API design and modular structure.<br>
     <strong>Engineering Focus:</strong><br>
     Ensured separation of concerns, scalable API design, and maintainable backend structure.
   </p>
@@ -784,9 +791,8 @@ Currently, I am focused on applying AI to real-world problems, particularly in a
     - Pattern recognition using ML models
 
     <br><br>
-
-    <strong>Objective:</strong><br>
-    Improve analysis efficiency by assisting in identifying meaningful visual patterns in large datasets.
+<strong>Outcome:</strong><br>
+Reduced manual inspection effort by enabling automated pattern detection in visual datasets.
   </p>
 
   <div class="card-actions">
@@ -796,12 +802,56 @@ Currently, I am focused on applying AI to real-world problems, particularly in a
     </div>
   </div>
 </section>
+  <section id="system-thinking">
+  <div class="section-number">03</div>
+  <h2 class="section-heading">System<br><em>Thinking</em></h2>
+
+  <p class="system-highlight">
+  I don’t optimize for perfect models — I optimize for systems that actually work.
+  </p>
+
+  <div class="system-flow">
+
+    <div class="system-row">
+      <div class="system-title">Robustness</div>
+      <div class="system-desc">
+        Designed models that handle noisy inputs and real-world variability across CV projects.
+      </div>
+    </div>
+
+    <div class="system-row">
+      <div class="system-title">Interpretability</div>
+      <div class="system-desc">
+        Used feature-engineered pipelines for transparent and explainable predictions.
+      </div>
+    </div>
+
+    <div class="system-row">
+      <div class="system-title">Scalable Systems</div>
+      <div class="system-desc">
+        Built modular backend architecture in EVENZ with role-based access control.
+      </div>
+    </div>
+
+    <div class="system-row">
+      <div class="system-title">Trade-offs</div>
+      <div class="system-desc">
+        Balanced accuracy, efficiency, and deployability instead of chasing benchmarks.
+      </div>
+    </div>
+
+  </div>
+</section>
 <!-- SKILLS -->
 <section id="skills">
   <div class="skills-left reveal">
-    <div class="section-number">03</div>
+    <div class="section-number">04</div>
     <h2 class="section-heading">Skills &amp;<br><em>Expertise</em></h2>
   </div>
+<div class="skills-right">
+      <p class="skills-intro">
+  Focused on building end-to-end systems — combining computer vision, machine learning, and scalable backend architecture.
+  </p>
   <div class="skills-grid">
     <div class="skill-category reveal reveal-delay-1">
       <div class="skill-cat-title">Languages</div>
@@ -835,6 +885,7 @@ Currently, I am focused on applying AI to real-world problems, particularly in a
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <!-- CONTACT -->
@@ -842,7 +893,9 @@ Currently, I am focused on applying AI to real-world problems, particularly in a
   <div class="contact-bg"></div>
   <div class="contact-eyebrow reveal">Let's Connect</div>
   <h2 class="contact-headline reveal">Open to<br><em>Opportunities</em></h2>
-  <p class="contact-sub reveal">Whether it's an internship, a collaboration, or a conversation about AI and computer vision — I'd love to hear from you.</p>
+ <p class="contact-sub">
+Actively looking to work on real-world AI systems — especially in computer vision and applied machine learning.
+</p>
   <p style="color:var(--accent); margin-bottom:2rem;">
 Actively seeking AI / ML internships where I can build real-world systems.
 </p>
