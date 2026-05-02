@@ -211,20 +211,55 @@ nav{
   80%{opacity:1}
   100%{top:140%;opacity:0}
 }
+/* HERO LAYOUT */
 .hero-container{
-  display:flex;
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
   align-items:center;
   gap:4rem;
-  flex-wrap:wrap;
+  min-height:90vh;
+}
+
+/* LEFT SIDE */
+.hero-left{
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+}
+
+/* RIGHT SIDE */
+.hero-right{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* PROFILE IMAGE */
+.profile-wrapper{
+  position:relative;
+  width:260px;
+  height:260px;
+}
+
+.profile-bg{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#6f9c9c;
+  border-radius:50%;
 }
 
 .profile-pic{
-  width:160px;
-  height:160px;
-  border-radius:50%;
+  position:absolute;
+  width:220px;
+  height:220px;
   object-fit:cover;
-  border:2px solid var(--border);
+  border-radius:50%;
+  top:20px;
+  left:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.6);
 }
+
 
 /* BUTTONS */
 .btn-primary{
@@ -489,15 +524,6 @@ footer{
 .footer-copy{font-size:0.65rem;letter-spacing:2px;color:var(--muted2);text-transform:uppercase}
 
 /* PROFILE IMAGE */
-.profile-pic{
-  width:140px;
-  height:140px;
-  object-fit:cover;
-  border-radius:50%;
-  margin-bottom:2rem;
-  border:2px solid var(--border);
-  box-shadow:0 10px 40px rgba(0,0,0,0.6);
-}
 
 /* NEW BUTTONS */
 .btn-primary{
@@ -580,34 +606,36 @@ footer{
     <div class="hero-left">
 
       <div class="hero-line">Computer Vision · AI Systems</div>
-
+ 
       <h1 class="hero-name">
         Building AI systems that solve real-world problems.
       </h1>
 
       <p class="hero-tagline">
-        Developed a plant disease detection system with <strong>92% accuracy</strong> using OpenCV and machine learning.
-        Experienced in building end-to-end systems — from data pipelines to deployable applications.
+        Developed a plant disease detection system with <strong>92% accuracy</strong>
+        using OpenCV and machine learning. Experienced in building end-to-end systems —
+        from data pipelines to deployable applications.
       </p>
 
-      <!-- PROOF STRIP -->
       <div class="hero-proof">
-        <span>✔ 92% ML Accuracy</span>
-        <span>✔ Computer Vision Projects</span>
-        <span>✔ Full-stack System</span>
+        <span>✓ 92% ML Accuracy</span>
+        <span>✓ Computer Vision Projects</span>
+        <span>✓ Full-stack System</span>
       </div>
 
-      <!-- CTA -->
       <div class="hero-cta">
-        <a href="resume.pdf" target="_blank" class="btn-primary">View Resume</a>
-        <a href="https://github.com/jhasu0202" target="_blank" class="btn-outline">GitHub</a>
+        <a href="resume.pdf" class="btn-primary">View Resume</a>
+        <a href="https://github.com/jhasu0202" class="btn-outline">GitHub</a>
       </div>
 
     </div>
 
-    <!-- RIGHT IMAGE -->
+    <!-- RIGHT SIDE -->
     <div class="hero-right">
-      <img src="./profile.png" class="profile-pic" alt="Jhasveni profile">
+      <div class="profile-wrapper">
+        <div class="profile-bg"></div>
+        <img src="profile.png" class="profile-pic">
+      </div>
     </div>
 
   </div>
