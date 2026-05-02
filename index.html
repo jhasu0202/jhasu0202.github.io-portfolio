@@ -378,7 +378,9 @@ nav{
 }
 .proj-link:hover{gap:0.8rem;opacity:1}
 .proj-link::after{content:'↗'}
-
+.project-card:first-child{
+  grid-column: span 2;
+}
 /* SKILLS */
 #skills{
   padding:10rem 6rem;
@@ -705,27 +707,64 @@ Currently, I am focused on applying AI to real-world problems, particularly in a
     </div>
 
     <!-- EVENZ -->
-    <div class="project-card">
-      <h3>EVENZ Event Platform</h3>
-      <p>
-        Developed a full-stack event management system with authentication and role-based access control.
-        Designed backend APIs and database schema to manage events, users, and participation workflows.
-      </p>
-      <div class="card-actions">
-        <a href="https://github.com/jhasu0202/evenz-event-platform" target="_blank">GitHub</a>
-      </div>
-    </div>
+   <div class="project-card">
+  <h3>EVENZ Event Platform</h3>
 
-    <!-- ARCHAEOLOGICAL -->
-    <div class="project-card">
-      <h3>Archaeological AI</h3>
-      <p>
-        Built a computer vision system to detect and analyze patterns in archaeological datasets.
-        Focused on feature extraction and visual pattern recognition using machine learning techniques.
-      </p>
-      <div class="card-actions">
-        <a href="https://github.com/jhasu0202/archaeological-ai" target="_blank">GitHub</a>
-      </div>
+  <p>
+    Built a full-stack event management system with authentication and role-based access control.
+
+    <br><br>
+
+    <strong>System Design:</strong><br>
+    Designed modular backend architecture using Node.js and Express with RESTful APIs.
+
+    <br><br>
+
+    <strong>Core Features:</strong><br>
+    - User authentication & authorization<br>
+    - Event creation and management<br>
+    - Role-based access (admin / user)<br>
+    - Structured database schema for scalability
+
+    <br><br>
+
+    <strong>Engineering Focus:</strong><br>
+    Ensured separation of concerns, scalable API design, and maintainable backend structure.
+  </p>
+
+  <div class="card-actions">
+    <a href="https://github.com/jhasu0202/evenz-event-platform" target="_blank">GitHub</a>
+  </div>
+</div>
+
+<div class="project-card">
+  <h3>Archaeological AI</h3>
+
+  <p>
+    Developed a computer vision system to detect and analyze patterns in archaeological datasets.
+
+    <br><br>
+
+    <strong>Approach:</strong><br>
+    Applied image processing and feature extraction techniques to identify structural patterns in visual data.
+
+    <br><br>
+
+    <strong>Techniques Used:</strong><br>
+    - Image preprocessing & filtering<br>
+    - Feature extraction<br>
+    - Pattern recognition using ML models
+
+    <br><br>
+
+    <strong>Objective:</strong><br>
+    Improve analysis efficiency by assisting in identifying meaningful visual patterns in large datasets.
+  </p>
+
+  <div class="card-actions">
+    <a href="https://github.com/jhasu0202/archaeological-ai" target="_blank">GitHub</a>
+  </div>
+</div>
     </div>
   </div>
 </section>
