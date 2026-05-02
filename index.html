@@ -154,7 +154,76 @@ nav{
   80%{opacity:1}
   100%{top:140%;opacity:0}
 }
+.hero-container{
+  display:flex;
+  align-items:center;
+  gap:4rem;
+  flex-wrap:wrap;
+}
 
+.profile-pic{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--border);
+}
+
+/* BUTTONS */
+.btn-primary{
+  background:var(--accent);
+  color:#000;
+  padding:1rem 2rem;
+  text-decoration:none;
+}
+
+.btn-outline{
+  border:1px solid var(--border);
+  padding:1rem 2rem;
+  text-decoration:none;
+  color:var(--text);
+}
+
+/* FEATURED */
+#featured{
+  padding:8rem 6rem;
+}
+
+.featured-box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  background:var(--surface);
+  padding:3rem;
+  border:1px solid var(--border);
+}
+
+.fake-img{
+  height:250px;
+  background:#222;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+}
+
+/* PROJECT GRID */
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:2rem;
+}
+
+.project-card{
+  padding:2rem;
+  background:var(--surface);
+  border:1px solid var(--border);
+}
+
+.card-actions a{
+  color:var(--accent);
+  text-decoration:none;
+}
 /* ABOUT */
 #about{
   padding:10rem 6rem;
@@ -374,6 +443,51 @@ footer{
 }
 .footer-copy{font-size:0.65rem;letter-spacing:2px;color:var(--muted2);text-transform:uppercase}
 
+/* PROFILE IMAGE */
+.profile-pic{
+  width:140px;
+  height:140px;
+  object-fit:cover;
+  border-radius:50%;
+  margin-bottom:2rem;
+  border:2px solid var(--border);
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* NEW BUTTONS */
+.btn-primary{
+  padding:1rem 2.5rem;
+  background:var(--accent);
+  color:#000;
+  font-size:0.7rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:all 0.3s;
+}
+
+.btn-primary:hover{
+  background:var(--accent-light);
+  transform:translateY(-2px);
+}
+
+.btn-outline{
+  padding:1rem 2.5rem;
+  border:1px solid var(--border);
+  color:var(--text);
+  font-size:0.7rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:all 0.3s;
+}
+
+.btn-outline:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+  transform:translateY(-2px);
+}
+
 /* ANIMATIONS */
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(28px)}
@@ -414,32 +528,36 @@ footer{
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
-  <div class="hero-bg-text">JV</div>
+  <div class="hero-container">
 
-  <div class="hero-line">Computer Science Student</div>
-  <h1 class="hero-name">Jhasveni</h1>
-  <p>
-<a href="https://github.com/jhasu0202" target="_blank">GitHub</a> |
-<a href="resume.pdf" target="_blank">Resume</a>
-</p>
-  <p class="hero-tagline">
-    Focused on <span>Computer Vision &amp; AI Systems</span>.<br>
-    Building intelligent solutions that bridge research and real-world impact.
-  </p>
-  <div class="hero-cta">
-    <a href="resume.pdf" target="_blank" class="btn-ghost">Resume</a>
-    <a href="#projects" class="btn-gold">View My Work</a>
-    <a href="#contact" class="btn-ghost">Get in Touch</a>
-  </div>
+    <div class="hero-left">
 
-  <div class="hero-scroll">
-    <div class="scroll-track"><div class="scroll-thumb"></div></div>
-    <span>Scroll</span>
+      <div class="hero-line">AI / Computer Vision</div>
+
+      <h1 class="hero-name">
+        Building real-world AI systems,<br>
+        not just models.
+      </h1>
+
+      <p class="hero-tagline">
+        Built a plant disease detection system with <strong>92% accuracy</strong> using OpenCV and classical ML. 
+        Focused on solving real-world problems in agriculture and intelligent systems.
+      </p>
+
+      <div class="hero-cta">
+        <a href="resume.pdf" target="_blank" class="btn-primary">View Resume</a>
+        <a href="https://github.com/jhasu0202" target="_blank" class="btn-outline">GitHub</a>
+      </div>
+
+    </div>
+
+    <div class="hero-right">
+      <img src="profile.png" class="profile-pic">
+    </div>
+
   </div>
 </section>
-
 <!-- ABOUT -->
 <section id="about">
   <div class="about-left reveal">
@@ -474,62 +592,44 @@ footer{
     </div>
   </div>
 </section>
-
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="projects-header reveal">
-    <div>
-      <div class="section-number">02</div>
-      <h2 class="section-heading">Selected<br><em>Projects</em></h2>
-    </div>
-    <div class="project-count">03</div>
+  <div class="projects-header">
+    <h2 class="section-heading">Projects</h2>
   </div>
 
-  <div class="projects-list">
-    <div class="project-item reveal">
-      <div class="proj-num">001</div>
-      <div class="proj-info">
-        <div class="proj-name">EVENZ — Event Management Platform</div>
-        <div class="proj-desc">A full-stack web application with authentication and role-based access control, built to manage events efficiently from creation through attendance tracking.</div>
-        <div class="proj-tech-row">
-          <span class="proj-tech-tag">Node.js</span>
-          <span class="proj-tech-tag">Express.js</span>
-          <span class="proj-tech-tag">Oracle DB</span>
-        </div>
+  <div class="project-grid">
+
+    <div class="project-card">
+      <h3>EVENZ Platform</h3>
+      <p>Full-stack event management system with authentication and role-based access.</p>
+      <div class="card-actions">
+        <a href="https://github.com/jhasu0202/evenz-event-platform" target="_blank">GitHub</a>
       </div>
-      <a href="https://github.com/jhasu0202/evenz-event-platform" target="_blank" class="proj-link">View Repo</a>
     </div>
 
-    <div class="project-item reveal reveal-delay-1">
-      <div class="proj-num">002</div>
-      <div class="proj-info">
-        <div class="proj-name">Citrus Disease Detection</div>
-        <div class="proj-desc">Built a citrus leaf disease classification system achieving 92% accuracy using feature extraction and classical ML techniques. Addressed challenges such as lighting variation and similar disease patterns through preprocessing and feature optimization.</div>
-        <div class="proj-tech-row">
-          <span class="proj-tech-tag">Python</span>
-          <span class="proj-tech-tag">OpenCV</span>
-          <span class="proj-tech-tag">scikit-learn</span>
-        </div>
+  <div class="project-card">
+  <h3>Citrus Disease Detection</h3>
+  <p>
+    Achieved <strong>92% accuracy</strong> using feature extraction + classical ML.
+    Handled lighting variation and similar disease patterns using preprocessing techniques.
+  </p>
+
+  <div class="card-actions">
+    <a href="https://github.com/jhasu0202/citrus-disease-detection" target="_blank">Code</a>
+  </div>
+</div>
+
+    <div class="project-card">
+      <h3>Archaeological AI</h3>
+      <p>Computer vision system for detecting patterns in archaeological datasets.</p>
+      <div class="card-actions">
+        <a href="https://github.com/jhasu0202/archaeological-ai" target="_blank">GitHub</a>
       </div>
-      <a href="https://github.com/jhasu0202/citrus-disease-detection" target="_blank" class="proj-link">View Repo</a>
     </div>
 
-    <div class="project-item reveal reveal-delay-2">
-      <div class="proj-num">003</div>
-      <div class="proj-info">
-        <div class="proj-name">Archaeological AI</div>
-        <div class="proj-desc">Developed a computer vision-based system for detecting and analyzing objects in archaeological datasets, focusing on pattern recognition and visual feature extraction.</div>
-        <div class="proj-tech-row">
-          <span class="proj-tech-tag">Python</span>
-          <span class="proj-tech-tag">Computer Vision</span>
-          <span class="proj-tech-tag">Deep Learning</span>
-        </div>
-      </div>
-      <a href="https://github.com/jhasu0202/archaeological-ai" target="_blank" class="proj-link">View Repo</a>
-    </div>
   </div>
 </section>
-
 <!-- SKILLS -->
 <section id="skills">
   <div class="skills-left reveal">
