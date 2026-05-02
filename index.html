@@ -59,17 +59,17 @@ nav{
 /* MAIN LAYOUT */
 .system-container{
   display:grid;
-  grid-template-columns:1fr 2fr;
+  grid-template-columns:0.8fr 2.2fr;
   gap:3rem;
   align-items:flex-start;
 }
 
-/* LEFT SIDE */
 .system-left{
   position:sticky;
   top:120px;
+  align-self:start;
+  max-width:200px;
 }
-
 /* RIGHT SIDE */
 .system-right{
   display:flex;
@@ -111,6 +111,11 @@ nav{
 .system-card p{
   font-size:0.85rem;
   color:var(--muted);
+}
+  .system-highlight{
+  color:var(--accent);
+  font-weight:500;
+  margin-top:-1rem;
 }
 /* HERO */
 #hero{
@@ -767,32 +772,30 @@ Currently, I am focused on applying AI to real-world problems, particularly in a
 
     <div class="system-right">
 
-      <p class="system-intro">
-        In my citrus detection system, I prioritized real-world deployment over raw accuracy.
-        I designed the pipeline to work under constraints like limited data, compute, and variability.
-      </p>
-
+      <p class="system-highlight">
+I don’t optimize for perfect models — I optimize for systems that actually work.
+</p>
       <div class="system-grid">
 
         <div class="system-card">
-          <h4>Robustness</h4>
-          <p>Handles lighting variation and noisy inputs.</p>
-        </div>
+  <h4>Robustness</h4>
+  <p>Handled noisy inputs and variability in citrus detection and archaeological datasets.</p>
+</div>
 
-        <div class="system-card">
-          <h4>Interpretability</h4>
-          <p>Feature-based model allows understanding predictions.</p>
-        </div>
+<div class="system-card">
+  <h4>Interpretability</h4>
+  <p>Used feature-based models in CV projects to make predictions understandable.</p>
+</div>
 
-        <div class="system-card">
-          <h4>Deployment</h4>
-          <p>Lightweight model runs without GPU.</p>
-        </div>
+<div class="system-card">
+  <h4>Scalable Design</h4>
+  <p>Designed EVENZ platform with modular backend and role-based access.</p>
+</div>
 
-        <div class="system-card">
-          <h4>Trade-offs</h4>
-          <p>Balanced accuracy vs efficiency instead of overfitting.</p>
-        </div>
+<div class="system-card">
+  <h4>Trade-offs</h4>
+  <p>Balanced accuracy vs efficiency across ML models and system architectures.</p>
+</div>
 
       </div>
 
