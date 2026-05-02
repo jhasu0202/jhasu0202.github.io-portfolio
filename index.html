@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jhasveni | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;
+  --bg2:#0f0f17;
+  --bg3:#141420;
+  --surface:#1a1a28;
+  --accent:#c9a96e;
+  --accent-light:#e8d5b0;
+  --text:#f0ede8;
+  --muted:#7a7a8c;
+  --muted2:#4a4a5a;
+  --border:rgba(201,169,110,0.15);
+  --border2:rgba(201,169,110,0.07);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.6rem 6rem;
+  background:rgba(10,10,15,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border2);
+}
+.logo{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;font-size:1.3rem;
+  color:var(--accent);letter-spacing:4px;
+  text-transform:uppercase;
+}
+.nav-links{display:flex;gap:3rem;list-style:none}
+.nav-links a{
+  color:var(--muted);font-size:0.72rem;
+  text-decoration:none;letter-spacing:3px;
+  text-transform:uppercase;font-weight:400;
+  transition:color 0.3s;
+}
+.nav-links a:hover{color:var(--accent)}
+
+/* HERO */
+#hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:10rem 6rem 5rem;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border2);
+}
+.hero-bg-text{
+  position:absolute;right:-2rem;bottom:-4rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:28vw;font-weight:300;
+  color:rgba(201,169,110,0.025);
+  line-height:1;pointer-events:none;
+  white-space:nowrap;user-select:none;
+}
+.hero-line{
+  font-size:0.68rem;letter-spacing:5px;
+  color:var(--accent);text-transform:uppercase;
+  margin-bottom:2rem;display:flex;align-items:center;gap:1.2rem;
+  opacity:0;animation:fadeUp 1s 0.2s ease forwards;
+}
+.hero-line::before{content:'';width:50px;height:1px;background:var(--accent);opacity:0.6}
+.hero-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(4rem,10vw,9rem);
+  font-weight:300;line-height:1;
+  letter-spacing:-1px;
+  margin-bottom:2.5rem;
+  opacity:0;animation:fadeUp 1s 0.35s ease forwards;
+}
+.hero-name em{
+  font-style:italic;
+  color:var(--accent);
+}
+.hero-tagline{
+  max-width:500px;
+  color:var(--muted);font-size:0.9rem;
+  line-height:2;font-weight:300;
+  margin-bottom:4rem;
+  opacity:0;animation:fadeUp 1s 0.5s ease forwards;
+}
+.hero-tagline span{color:var(--text);font-weight:400}
+.hero-cta{
+  display:flex;gap:1.5rem;align-items:center;
+  opacity:0;animation:fadeUp 1s 0.65s ease forwards;
+}
+.btn-gold{
+  padding:1rem 2.8rem;
+  background:var(--accent);color:var(--bg);
+  font-family:'DM Sans',sans-serif;
+  font-size:0.72rem;font-weight:500;
+  letter-spacing:3px;text-transform:uppercase;
+  text-decoration:none;border:none;
+  transition:background 0.3s,transform 0.2s,box-shadow 0.3s;
+  display:inline-block;
+}
+.btn-gold:hover{
+  background:var(--accent-light);
+  transform:translateY(-2px);
+  box-shadow:0 12px 40px rgba(201,169,110,0.2);
+}
+.btn-ghost{
+  font-size:0.72rem;letter-spacing:3px;
+  text-transform:uppercase;color:var(--muted);
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:0.8rem;
+  transition:color 0.3s;
+}
+.btn-ghost:hover{color:var(--accent)}
+.btn-ghost::after{
+  content:'→';
+  transition:transform 0.3s;
+}
+.btn-ghost:hover::after{transform:translateX(4px)}
+
+.hero-scroll{
+  position:absolute;right:6rem;bottom:3rem;
+  display:flex;flex-direction:column;align-items:center;gap:1rem;
+  opacity:0;animation:fadeUp 1s 1s ease forwards;
+}
+.hero-scroll span{
+  font-size:0.6rem;letter-spacing:4px;
+  text-transform:uppercase;color:var(--muted);
+  writing-mode:vertical-rl;
+}
+.scroll-track{
+  width:1px;height:80px;
+  background:var(--border2);position:relative;overflow:hidden;
+}
+.scroll-thumb{
+  position:absolute;top:0;left:0;width:100%;height:40%;
+  background:var(--accent);
+  animation:scrollDown 2.5s ease-in-out infinite;
+}
+@keyframes scrollDown{
+  0%{top:-40%;opacity:0}
+  20%{opacity:1}
+  80%{opacity:1}
+  100%{top:140%;opacity:0}
+}
+
+/* ABOUT */
+#about{
+  padding:10rem 6rem;
+  border-bottom:1px solid var(--border2);
+  display:grid;grid-template-columns:1fr 2fr;
+  gap:6rem;align-items:start;
+}
+.section-number{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.7rem;letter-spacing:4px;
+  color:var(--accent);text-transform:uppercase;
+  margin-bottom:1rem;
+}
+.section-heading{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:300;line-height:1.2;
+  letter-spacing:-0.5px;
+}
+.section-heading em{font-style:italic;color:var(--accent)}
+.about-right{}
+.about-text p{
+  color:var(--muted);font-size:0.88rem;line-height:2.1;
+  margin-bottom:1.4rem;font-weight:300;
+}
+.about-text p strong{color:var(--text);font-weight:400}
+.about-divider{
+  width:40px;height:1px;
+  background:var(--accent);opacity:0.5;
+  margin:2.5rem 0;
+}
+.about-details{
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;
+}
+.detail-item{}
+.detail-label{
+  font-size:0.62rem;letter-spacing:4px;
+  text-transform:uppercase;color:var(--muted2);
+  margin-bottom:0.4rem;
+}
+.detail-val{
+  font-size:0.85rem;color:var(--text);font-weight:400;
+}
+
+/* PROJECTS */
+#projects{
+  padding:10rem 6rem;
+  border-bottom:1px solid var(--border2);
+}
+.projects-header{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:5rem;
+}
+.project-count{
+  font-family:'Cormorant Garamond',serif;
+  font-size:5rem;font-weight:300;
+  color:rgba(201,169,110,0.12);
+  line-height:1;
+}
+.projects-list{display:flex;flex-direction:column;gap:0}
+.project-item{
+  display:grid;grid-template-columns:80px 1fr auto;
+  gap:3rem;align-items:center;
+  padding:2.5rem 0;
+  border-top:1px solid var(--border2);
+  transition:background 0.3s;
+  position:relative;cursor:default;
+}
+.project-item::before{
+  content:'';position:absolute;
+  left:0;right:0;top:0;bottom:0;
+  background:rgba(201,169,110,0.02);
+  opacity:0;transition:opacity 0.3s;
+}
+.project-item:hover::before{opacity:1}
+.project-item:last-child{border-bottom:1px solid var(--border2)}
+.proj-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;font-weight:300;
+  color:var(--muted2);letter-spacing:2px;
+}
+.proj-info{}
+.proj-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;font-weight:300;
+  letter-spacing:-0.5px;margin-bottom:0.5rem;
+  transition:color 0.3s;
+}
+.project-item:hover .proj-name{color:var(--accent)}
+.proj-desc{
+  color:var(--muted);font-size:0.8rem;
+  line-height:1.8;max-width:500px;
+}
+.proj-tech-row{
+  display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.8rem;
+}
+.proj-tech-tag{
+  font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted2);padding:0.2rem 0.7rem;
+  border:1px solid var(--border2);
+}
+.proj-link{
+  color:var(--accent);font-size:0.72rem;
+  letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;white-space:nowrap;
+  display:flex;align-items:center;gap:0.5rem;
+  transition:gap 0.3s,opacity 0.3s;
+  opacity:0.7;
+}
+.proj-link:hover{gap:0.8rem;opacity:1}
+.proj-link::after{content:'↗'}
+
+/* SKILLS */
+#skills{
+  padding:10rem 6rem;
+  border-bottom:1px solid var(--border2);
+  display:grid;grid-template-columns:1fr 2fr;
+  gap:6rem;align-items:start;
+}
+.skills-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:3rem;
+}
+.skill-category{}
+.skill-cat-title{
+  font-size:0.62rem;letter-spacing:4px;
+  text-transform:uppercase;color:var(--accent);
+  margin-bottom:1.5rem;padding-bottom:0.8rem;
+  border-bottom:1px solid var(--border2);
+}
+.skill-entries{display:flex;flex-direction:column;gap:0.8rem}
+.skill-entry{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:0.82rem;color:var(--muted);
+  padding:0.5rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.skill-entry:last-child{border-bottom:none}
+.skill-entry span:first-child{color:var(--text);font-weight:400}
+.skill-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);opacity:0.5;
+}
+
+/* CONTACT */
+#contact{
+  padding:10rem 6rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.contact-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 100%,rgba(201,169,110,0.04),transparent);
+  pointer-events:none;
+}
+.contact-eyebrow{
+  font-size:0.68rem;letter-spacing:5px;
+  text-transform:uppercase;color:var(--accent);
+  margin-bottom:2rem;display:flex;align-items:center;
+  justify-content:center;gap:1.5rem;
+}
+.contact-eyebrow::before,.contact-eyebrow::after{
+  content:'';width:40px;height:1px;background:var(--accent);opacity:0.4;
+}
+.contact-headline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.5rem,7vw,6rem);
+  font-weight:300;line-height:1.05;
+  letter-spacing:-2px;margin-bottom:2rem;
+}
+.contact-headline em{font-style:italic;color:var(--accent)}
+.contact-sub{
+  color:var(--muted);font-size:0.88rem;
+  line-height:2;max-width:440px;
+  margin:0 auto 4rem;
+}
+.contact-actions{
+  display:flex;justify-content:center;gap:1.5rem;
+  flex-wrap:wrap;margin-bottom:5rem;
+}
+.contact-card{
+  display:flex;align-items:center;gap:1rem;
+  padding:1.2rem 2rem;
+  background:var(--surface);
+  border:1px solid var(--border2);
+  color:var(--text);text-decoration:none;
+  font-size:0.78rem;letter-spacing:2px;text-transform:uppercase;
+  transition:border-color 0.3s,color 0.3s,transform 0.2s;
+}
+.contact-card:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+.contact-card svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+.availability{
+  display:inline-flex;align-items:center;gap:0.8rem;
+  font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);
+}
+.avail-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#4ade80;
+  box-shadow:0 0 0 0 rgba(74,222,128,0.4);
+  animation:ping 2s ease-in-out infinite;
+}
+@keyframes ping{
+  0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.4)}
+  50%{box-shadow:0 0 0 8px rgba(74,222,128,0)}
+}
+
+footer{
+  padding:2rem 6rem;
+  border-top:1px solid var(--border2);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.9rem;letter-spacing:3px;color:var(--muted2);
+  text-transform:uppercase;
+}
+.footer-copy{font-size:0.65rem;letter-spacing:2px;color:var(--muted2);text-transform:uppercase}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.reveal{
+  opacity:0;transform:translateY(30px);
+  transition:opacity 0.9s ease,transform 0.9s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+
+@media(max-width:900px){
+  nav{padding:1.2rem 2rem}
+  #hero,#about,#projects,#skills,#contact,footer{padding-left:2rem;padding-right:2rem}
+  #about,#skills{grid-template-columns:1fr;gap:3rem}
+  .projects-header{flex-direction:column;align-items:flex-start;gap:1rem}
+  .project-item{grid-template-columns:50px 1fr;gap:1.5rem}
+  .proj-link{display:none}
+  .skills-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:0.5rem;text-align:center}
+  .hero-scroll{display:none}
+  .about-details{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Jhasveni</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">JV</div>
+
+  <div class="hero-line">Computer Science Student</div>
+  <h1 class="hero-name">Jhasveni</h1>
+  <p>
+<a href="https://github.com/jhasu0202" target="_blank">GitHub</a> |
+<a href="resume.pdf" target="_blank">Resume</a>
+</p>
+  <p class="hero-tagline">
+    Focused on <span>Computer Vision &amp; AI Systems</span>.<br>
+    Building intelligent solutions that bridge research and real-world impact.
+  </p>
+  <div class="hero-cta">
+    <a href="resume.pdf" target="_blank" class="btn-ghost">Resume</a>
+    <a href="#projects" class="btn-gold">View My Work</a>
+    <a href="#contact" class="btn-ghost">Get in Touch</a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-track"><div class="scroll-thumb"></div></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-left reveal">
+    <div class="section-number">01</div>
+    <h2 class="section-heading">About<br><em>Me</em></h2>
+  </div>
+  <div class="about-right">
+    <div class="about-text reveal reveal-delay-1">
+      <p>I'm a Computer Science student with a focused interest in <strong>Computer Vision and AI systems</strong>. I believe in building software that is not just functional, but meaningful.</p>
+      <p>From training machine learning models that detect agricultural diseases to engineering full-stack platforms with secure role-based access, I work across the full spectrum of software development — from raw data pipelines to polished user interfaces.</p>
+      <p>Currently exploring the intersection of <strong>AI and real-world impact</strong>, and always looking for opportunities to apply research to practical challenges.</p>
+    </div>
+    <div class="about-divider reveal reveal-delay-2"></div>
+    <div class="about-details reveal reveal-delay-3">
+      <div class="detail-item">
+        <div class="detail-label">Location</div>
+        <div class="detail-val">India</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Focus</div>
+        <div class="detail-val">Computer Vision · AI</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Status</div>
+        <div class="detail-val">Open to Opportunities</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">GitHub</div>
+        <div class="detail-val">
+        <a href="https://github.com/jhasu0202" target="_blank">jhasu0202</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-header reveal">
+    <div>
+      <div class="section-number">02</div>
+      <h2 class="section-heading">Selected<br><em>Projects</em></h2>
+    </div>
+    <div class="project-count">03</div>
+  </div>
+
+  <div class="projects-list">
+    <div class="project-item reveal">
+      <div class="proj-num">001</div>
+      <div class="proj-info">
+        <div class="proj-name">EVENZ — Event Management Platform</div>
+        <div class="proj-desc">A full-stack web application with authentication and role-based access control, built to manage events efficiently from creation through attendance tracking.</div>
+        <div class="proj-tech-row">
+          <span class="proj-tech-tag">Node.js</span>
+          <span class="proj-tech-tag">Express.js</span>
+          <span class="proj-tech-tag">Oracle DB</span>
+        </div>
+      </div>
+      <a href="https://github.com/jhasu0202/evenz-event-platform" target="_blank" class="proj-link">View Repo</a>
+    </div>
+
+    <div class="project-item reveal reveal-delay-1">
+      <div class="proj-num">002</div>
+      <div class="proj-info">
+        <div class="proj-name">Citrus Disease Detection</div>
+        <div class="proj-desc">Built a citrus leaf disease classification system achieving 92% accuracy using feature extraction and classical ML techniques. Addressed challenges such as lighting variation and similar disease patterns through preprocessing and feature optimization.</div>
+        <div class="proj-tech-row">
+          <span class="proj-tech-tag">Python</span>
+          <span class="proj-tech-tag">OpenCV</span>
+          <span class="proj-tech-tag">scikit-learn</span>
+        </div>
+      </div>
+      <a href="https://github.com/jhasu0202/citrus-disease-detection" target="_blank" class="proj-link">View Repo</a>
+    </div>
+
+    <div class="project-item reveal reveal-delay-2">
+      <div class="proj-num">003</div>
+      <div class="proj-info">
+        <div class="proj-name">Archaeological AI</div>
+        <div class="proj-desc">Developed a computer vision-based system for detecting and analyzing objects in archaeological datasets, focusing on pattern recognition and visual feature extraction.</div>
+        <div class="proj-tech-row">
+          <span class="proj-tech-tag">Python</span>
+          <span class="proj-tech-tag">Computer Vision</span>
+          <span class="proj-tech-tag">Deep Learning</span>
+        </div>
+      </div>
+      <a href="https://github.com/jhasu0202/archaeological-ai" target="_blank" class="proj-link">View Repo</a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-left reveal">
+    <div class="section-number">03</div>
+    <h2 class="section-heading">Skills &amp;<br><em>Expertise</em></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-category reveal reveal-delay-1">
+      <div class="skill-cat-title">Languages</div>
+      <div class="skill-entries">
+        <div class="skill-entry"><span>Python</span><div class="skill-dot"></div></div>
+        <div class="skill-entry"><span>Java</span><div class="skill-dot"></div></div>
+        <div class="skill-entry"><span>C++</span><div class="skill-dot"></div></div>
+      </div>
+    </div>
+    <div class="skill-category reveal reveal-delay-2">
+      <div class="skill-cat-title">Machine Learning</div>
+      <div class="skill-entries">
+        <div class="skill-entry"><span>Computer Vision</span><div class="skill-dot"></div></div>
+        <div class="skill-entry"><span>OpenCV</span><div class="skill-dot"></div></div>
+        <div class="skill-entry"><span>scikit-learn</span><div class="skill-dot"></div></div>
+      </div>
+    </div>
+    <div class="skill-category reveal reveal-delay-3">
+      <div class="skill-cat-title">Web Development</div>
+      <div class="skill-entries">
+        <div class="skill-entry"><span>Node.js</span><div class="skill-dot"></div></div>
+        <div class="skill-entry"><span>Express.js</span><div class="skill-dot"></div></div>
+        <div class="skill-entry"><span>Oracle DB</span><div class="skill-dot"></div></div>
+      </div>
+    </div>
+    <div class="skill-category reveal reveal-delay-1">
+      <div class="skill-cat-title">Tools</div>
+      <div class="skill-entries">
+        <div class="skill-entry"><span>Git</span><div class="skill-dot"></div></div>
+        <div class="skill-entry"><span>Streamlit</span><div class="skill-dot"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-eyebrow reveal">Let's Connect</div>
+  <h2 class="contact-headline reveal">Open to<br><em>Opportunities</em></h2>
+  <p class="contact-sub reveal">Whether it's an internship, a collaboration, or a conversation about AI and computer vision — I'd love to hear from you.</p>
+  <div class="contact-actions reveal">
+    <a href="mailto:jhasujamisetty@gmail.com" class="contact-card">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      jhasujamisetty@gmail.com
+    </a>
+    <a href="https://github.com/jhasu0202" target="_blank" class="contact-card">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      github.com/jhasu0202
+    </a>
+  </div>
+  <div class="availability reveal">
+    <div class="avail-dot"></div>
+    Currently available for internships &amp; projects
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Jhasveni</div>
+  <div class="footer-copy">&copy; 2025 · All rights reserved</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+    }
+  });
+}, {threshold: 0.12});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
