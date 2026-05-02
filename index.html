@@ -57,65 +57,36 @@ nav{
 }
 
 /* MAIN LAYOUT */
-.system-container{
-  display:grid;
-  grid-template-columns:0.8fr 2.2fr;
-  gap:3rem;
-  align-items:flex-start;
-}
-
-.system-left{
-  position:sticky;
-  top:120px;
-  align-self:start;
-  max-width:200px;
-}
-/* RIGHT SIDE */
-.system-right{
+.system-flow{
   display:flex;
   flex-direction:column;
   gap:2rem;
 }
 
-.system-intro{
+/* EACH ROW */
+.system-row{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:2rem;
+  align-items:start;
+  padding-bottom:1.5rem;
+  border-bottom:1px solid #222;
+}
+
+/* LEFT TITLE */
+.system-title{
+  font-weight:600;
+  color:var(--accent);
+}
+
+/* RIGHT TEXT */
+.system-desc{
   color:var(--muted);
   line-height:1.6;
 }
-
-/* GRID */
-.system-grid{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:1.5rem;
-}
-
-/* CARDS */
-.system-card{
-  background:var(--surface);
-  padding:1.5rem;
-  border-radius:10px;
-  border:1px solid #222;
-  transition:0.3s;
-}
-
-.system-card:hover{
-  transform:translateY(-5px);
-  border-color:var(--accent);
-}
-
-.system-card h4{
-  margin-bottom:0.5rem;
-  color:var(--accent);
-}
-
-.system-card p{
-  font-size:0.85rem;
-  color:var(--muted);
-}
-  .system-highlight{
-  color:var(--accent);
-  font-weight:500;
-  margin-top:-1rem;
+  .system-row:hover{
+  transform:translateX(5px);
+  transition:0.2s;
 }
 /* HERO */
 #hero{
@@ -759,50 +730,44 @@ Currently, I am focused on applying AI to real-world problems, particularly in a
 
   </div>
 </section>
-</section
-<section id="system-thinking">
-  <div class="system-container">
-
-    <div class="system-left">
-      <div class="section-number">04</div>
-      <h2 class="section-heading">
-        System<br><em>Thinking</em>
-      </h2>
-    </div>
-
-    <div class="system-right">
-
-      <p class="system-highlight">
-I don’t optimize for perfect models — I optimize for systems that actually work.
-</p>
-      <div class="system-grid">
-
-        <div class="system-card">
-  <h4>Robustness</h4>
-  <p>Handled noisy inputs and variability in citrus detection and archaeological datasets.</p>
-</div>
-
-<div class="system-card">
-  <h4>Interpretability</h4>
-  <p>Used feature-based models in CV projects to make predictions understandable.</p>
-</div>
-
-<div class="system-card">
-  <h4>Scalable Design</h4>
-  <p>Designed EVENZ platform with modular backend and role-based access.</p>
-</div>
-
-<div class="system-card">
-  <h4>Trade-offs</h4>
-  <p>Balanced accuracy vs efficiency across ML models and system architectures.</p>
-</div>
-
-      </div>
-
-    </div>
-
-  </div>
 </section>
+<div class="system-flow">
+
+  <div class="system-row">
+    <div class="system-title">Robustness</div>
+    <div class="system-desc">
+      Built models that handle noisy inputs and lighting variation across computer vision projects.
+    </div>
+  </div>
+
+  <div class="system-row">
+    <div class="system-title">Interpretability</div>
+    <div class="system-desc">
+      Used feature-engineered pipelines to ensure predictions are explainable.
+    </div>
+  </div>
+
+  <div class="system-row">
+    <div class="system-title">Scalable Systems</div>
+    <div class="system-desc">
+      Designed EVENZ platform with modular backend and role-based architecture.
+    </div>
+  </div>
+
+  <div class="system-row">
+    <div class="system-title">Trade-offs</div>
+    <div class="system-desc">
+      Prioritized deployability and efficiency over marginal accuracy improvements.
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
 <!-- SKILLS -->
 <section id="skills">
   <div class="skills-left reveal">
