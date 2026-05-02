@@ -115,6 +115,13 @@ nav{
   padding:0.4rem 0.8rem;
   border-radius:20px;
 }
+  .hero-metrics{
+  display:flex;
+  flex-direction:column;
+  gap:0.5rem;
+  font-size:0.7rem;
+  color:var(--muted);
+}
 .btn-gold{
   padding:1rem 2.8rem;
   background:var(--accent);color:var(--bg);
@@ -198,30 +205,7 @@ nav{
   text-decoration:none;
   color:var(--text);
 }
-
-/* FEATURED */
-#featured{
-  padding:8rem 6rem;
-}
-
-.featured-box{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:3rem;
-  background:var(--surface);
-  padding:3rem;
-  border:1px solid var(--border);
-}
-
-.fake-img{
-  height:250px;
-  background:#222;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--muted);
-}
-
+  
 /* PROJECT GRID */
 .project-grid{
   display:grid;
@@ -234,7 +218,16 @@ nav{
   background:var(--surface);
   border:1px solid var(--border);
 }
-
+.project-card:hover{
+  transform:translateY(-5px);
+  transition:0.3s;
+}
+.project-card p{
+  margin-top:1rem;
+}  
+.hero-tagline{
+  font-size:1rem;
+}  
 .card-actions a{
   color:var(--accent);
   text-decoration:none;
@@ -566,6 +559,11 @@ footer{
         <span>✔ Computer Vision Projects</span>
         <span>✔ Full-stack System</span>
       </div>
+      <div class="hero-metrics">
+        <div>📊 Dataset: 2027 images</div>
+        <div>🧠 Model: Random Forest (feature-engineered)</div>
+        <div>⚡ Inference: &lt; 0.1 sec</div>
+      </div>
 
       <!-- CTA -->
       <div class="hero-cta">
@@ -647,8 +645,27 @@ Designed backend APIs and database schema to manage events, users, and participa
   <div class="project-card">
   <h3>Citrus Disease Detection</h3>
 <p>
-Achieved <strong>92% accuracy</strong> using feature extraction and classical ML techniques. 
-Handled real-world challenges like lighting variation and visually similar disease patterns through preprocessing and feature optimization.
+Built a feature-engineered computer vision system achieving <strong>92% accuracy</strong> on a real-world dataset.
+
+<br><br>
+
+<strong>Dataset:</strong> 2027 images (train: 1808, test: 219)  
+Includes lighting variation, noise, and visually similar diseases.
+
+<br><br>
+
+<strong>Approach:</strong>  
+HSV (color) + GLCM (texture) + LBP (micro-patterns) → Random Forest
+
+<br><br>
+
+<strong>Why not deep learning?</strong>  
+Works better on smaller datasets, requires less compute, and is interpretable.
+
+<br><br>
+
+<strong>Limitations:</strong>  
+Sensitive to extreme lighting, overlapping leaves, and unseen diseases.
 </p>
 
   <div class="card-actions">
@@ -668,6 +685,25 @@ Focused on feature extraction and visual pattern recognition using machine learn
     </div>
 
   </div>
+</section
+<section id="system-thinking">
+  <div class="section-number">04</div>
+  <h2 class="section-heading">System<br><em>Thinking</em></h2>
+
+  <p class="about-text">
+  I design systems with real-world constraints in mind.
+
+  <br><br>
+
+  Instead of optimizing only for accuracy, I focus on:
+  </p>
+
+  <ul class="about-text">
+    <li>• Data limitations and robustness</li>
+    <li>• Model interpretability</li>
+    <li>• Deployment feasibility</li>
+    <li>• Trade-offs between accuracy and efficiency</li>
+  </ul>
 </section>
 <!-- SKILLS -->
 <section id="skills">
@@ -716,6 +752,9 @@ Focused on feature extraction and visual pattern recognition using machine learn
   <div class="contact-eyebrow reveal">Let's Connect</div>
   <h2 class="contact-headline reveal">Open to<br><em>Opportunities</em></h2>
   <p class="contact-sub reveal">Whether it's an internship, a collaboration, or a conversation about AI and computer vision — I'd love to hear from you.</p>
+  <p style="color:var(--accent); margin-bottom:2rem;">
+Actively seeking AI / ML internships where I can build real-world systems.
+</p>
   <div class="contact-actions reveal">
     <a href="mailto:jhasujamisetty@gmail.com" class="contact-card">
       <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
